@@ -94,5 +94,5 @@ void eighthTask(void) {
 }	
 
 void main(void) {
-	thirdTask();
+	firstTask();
 }
