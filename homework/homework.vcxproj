@@ -130,6 +130,9 @@
     <ClCompile Include="homework%2818.09%29.c" />
     <ClCompile Include="functions.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="READ.me" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
