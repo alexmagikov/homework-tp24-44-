@@ -91,8 +91,9 @@ void eighthTask(void) {
 	for (int i = 0; i < numberOfElements; i++) {
 		printf("%d ", array[i]);
 	}
+	free(array);
 }	
 
 void main(void) {
-	firstTask();
+	thirdTask();
 }
