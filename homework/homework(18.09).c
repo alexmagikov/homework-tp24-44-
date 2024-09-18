@@ -21,8 +21,9 @@ void firstTask(void) {
 void secondTask(void) {
 	int a = 1;
 	int b = 2; 
+	printf("First num %d Second num %d \n", a, b);
 	swap(&a, &b);
-	printf("%d %d", a, b);
+	printf("First num %d Second num %d", a, b);
 }
 
 void thirdTask(void) {
@@ -32,11 +33,11 @@ void thirdTask(void) {
 	scanf("%d", &divisible);
 	printf("Input int divider ");
 	scanf("%d", &divider);
-	printf("%d", searchQuotient(divisible, divider));
+	printf("Incomplete quotient %d", searchQuotient(divisible, divider));
 }
 
 void fourthTask(void) {
-	printf("%d", happyTickets());
+	printf("Num of happy tickets %d", happyTickets());
 }
 
 void fifthTask(void) {
@@ -70,7 +71,7 @@ void seventhTask(void) {
 	fgets(string1, 20, stdin);
 	printf("Input shorter string with  max 20 letters ");
 	fgets(string2, 20, stdin);
-	printf("%d", searchNumOccurence(string1, string2));
+	printf("Num of occurence str2 in str1 %d", searchNumOccurence(string1, string2));
 }
 
 void eighthTask(void) {
@@ -88,6 +89,7 @@ void eighthTask(void) {
 	swapPartOfArray(array, 0, lengthPart1 - 1);
 	swapPartOfArray(array, lengthPart1, numberOfElements - 1);
 	swapPartOfArray(array, 0, numberOfElements - 1);
+	printf("New array ");
 	for (int i = 0; i < numberOfElements; i++) {
 		printf("%d ", array[i]);
 	}
@@ -95,5 +97,5 @@ void eighthTask(void) {
 }	
 
 void main(void) {
-	thirdTask();
+	eighthTask();
 }
