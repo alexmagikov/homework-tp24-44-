@@ -133,10 +133,10 @@ void swapPartOfArray(int array[], int startIndex, int finshIndex) {
 }
 
 int searchQuotient(int divisible, int divider) {
-	if (divisible == 0) {
+	if (divisible == 0 || divider == 0) {
 		return 0;
 	}
-	else if (divisible > 0) {
+	if (divisible > 0 && divider > 0) { 
 		int quotient = 0;
 		while (divisible >= divider) {
 			quotient++;
@@ -144,14 +144,29 @@ int searchQuotient(int divisible, int divider) {
 		}
 		return quotient;
 	}
-	else {
+	if (divisible > 0 && divider < 0) {
+		int quotient = 0;
+		while (divisible > abs(divider)) {
+			quotient--;
+			divisible = divisible - abs(divider);
+		}
+		return quotient;
+	}
+	if (divisible < 0 && divider > 0){
 		int quotient = 1;
 		while (divider * quotient < abs(divisible)) {
 			quotient++;
 		}
 		return -quotient;
 	}
+	if (divisible < 0 && divider < 0) {
+		int quotient = 1;
+		while (abs(divider) * quotient < abs(divisible)) {
+			quotient++;
+		}
+		return quotient;
+	}
 }
 
-
+	
 
