@@ -146,7 +146,7 @@ int searchQuotient(int divisible, int divider) {
 	}
 	if (divisible > 0 && divider < 0) {
 		int quotient = 0;
-		while (divisible > abs(divider)) {
+		while (divisible >= abs(divider)) {
 			quotient--;
 			divisible = divisible - abs(divider);
 		}
