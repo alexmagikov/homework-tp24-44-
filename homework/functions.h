@@ -24,30 +24,6 @@ int* createArray(int numberOfElements) {
 	return array;
 }
 
-bool isBalanced(char string[]) {
-	int numOfLeftBracket = 0;
-	int numOfRightBracket = 0;
-	for (int i = 0; i < 20; i++) {
-		if (string[i] != '\0') {
-			if (string[i] == '(') {
-				numOfLeftBracket++;
-			}
-			else if (string[i] == ')') {
-				numOfRightBracket++;
-			}
-		}
-		else {
-			break;
-		}
-	}
-	if (numOfLeftBracket == numOfRightBracket) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
 bool isSimple(int num) {
 	bool isTrue = true;
 	for (int i = 2; i <= num / 2; i++) {
@@ -168,5 +144,22 @@ int searchQuotient(int divisible, int divider) {
 	}
 }
 
-	
+bool isBalanced(char string[]) {
+	int lastIndex = searchLengthString(string);
+	for (int i = 0; i < searchLengthString(string); i++) {
+		if (string[i] == '(') {
+			bool isSearchBracket = false;
+			for (int j = lastIndex; j > i; j--) {
+				if (string[j] == ')') {
+					lastIndex = j;
+					isSearchBracket = true;
+				}
+			}
+			if (!isSearchBracket) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
 
