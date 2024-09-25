@@ -145,14 +145,15 @@ int searchQuotient(int divisible, int divider) {
 }
 
 bool isBalanced(char string[]) {
-	int lastIndex = searchLengthString(string);
+	int lastIndex = searchLengthString(string) - 1;
 	for (int i = 0; i < searchLengthString(string); i++) {
 		if (string[i] == '(') {
 			bool isSearchBracket = false;
 			for (int j = lastIndex; j > i; j--) {
 				if (string[j] == ')') {
-					lastIndex = j;
+					lastIndex = j - 1;
 					isSearchBracket = true;
+					break;
 				}
 			}
 			if (!isSearchBracket) {
