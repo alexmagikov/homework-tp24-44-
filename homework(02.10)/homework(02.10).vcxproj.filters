@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="homework%2818.09%29.c">
+    <ClCompile Include="mainStarter.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="functions.h">
+    <ClCompile Include="mainStarterTests.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
