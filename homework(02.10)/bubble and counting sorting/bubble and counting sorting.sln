@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bubble and counting sorting", "bubble and counting sorting\bubble and counting sorting.vcxproj", "{7534D498-7399-4D8E-BAB1-5BDB17BE61E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7534D498-7399-4D8E-BAB1-5BDB17BE61E2}.Debug|x64.ActiveCfg = Debug|x64
+		{7534D498-7399-4D8E-BAB1-5BDB17BE61E2}.Debug|x64.Build.0 = Debug|x64
+		{7534D498-7399-4D8E-BAB1-5BDB17BE61E2}.Debug|x86.ActiveCfg = Debug|Win32
+		{7534D498-7399-4D8E-BAB1-5BDB17BE61E2}.Debug|x86.Build.0 = Debug|Win32
+		{7534D498-7399-4D8E-BAB1-5BDB17BE61E2}.Release|x64.ActiveCfg = Release|x64
+		{7534D498-7399-4D8E-BAB1-5BDB17BE61E2}.Release|x64.Build.0 = Release|x64
+		{7534D498-7399-4D8E-BAB1-5BDB17BE61E2}.Release|x86.ActiveCfg = Release|Win32
+		{7534D498-7399-4D8E-BAB1-5BDB17BE61E2}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0145873-E735-44E5-B6C2-21AE21A54C7A}
+	EndGlobalSection
+EndGlobal
