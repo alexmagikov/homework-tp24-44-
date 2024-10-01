@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
 
 void swap(int* num1, int* num2) {
 	*num1 = *num2 + *num1;
@@ -26,18 +27,12 @@ int* createArray(int numberOfElements) {
 }
 
 bool isSimple(int num) {
-	bool isTrue = true;
-	for (int i = 2; i <= num / 2; i++) {
+	for (int i = 2; i <= sqrt(num); i++) {
 		if (num % i == 0) {
-			isTrue = false;
+			return false;
 		}
 	}
-	if (isTrue) {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return true;
 }
 
 int happyTickets(void) {
