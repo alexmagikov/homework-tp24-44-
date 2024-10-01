@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 void swap(int* num1, int* num2) {
 	*num1 = *num2 + *num1;
@@ -55,37 +56,26 @@ int happyTickets(void) {
 	return numOfHappyTickets;
 }
 
-int searchLengthString(char string[]) {
-	int lengthString = 0;
-	for (int i = 0; i < 20; i++) {
-		if (string[i] != '\0') {
-			lengthString++;
-		}
-		else {
-			break;
-		}
-	}
-	return lengthString - 1;
+int searchLengthString(char *string) {
+	char *lastElement;
+	lastElement = strchr(string, '\n');
+	int lengthString = (int)(lastElement - string);
+	return lengthString;
 }
 
-int searchNumOccurence(char string1[], char string2[]) {
+int searchNumOccurence(char *string1, char *string2) {
 	int numOfOccurence = 0;
 	int lengthString1 = searchLengthString(string1);
 	int lengthString2 = searchLengthString(string2);
 	for (int i = 0; i < lengthString1; i++) {
-		if (string1[i] != '\0') {
-			bool isOccurence = true;
-			for (int j = 0; j < lengthString2; j++) {
-				if (string1[i + j] != string2[j]) {
-					isOccurence = false;
-				}
-			}
-			if (isOccurence) {
-				numOfOccurence++; 
+		bool isOccurence = true;
+		for (int j = 0; j < lengthString2; j++) {
+			if (string1[i + j] != string2[j]) {
+				isOccurence = false;
 			}
 		}
-		else {
-			break;
+		if (isOccurence) {
+			numOfOccurence++; 
 		}
 	}
 	return numOfOccurence;
@@ -144,9 +134,11 @@ int searchQuotient(int divisible, int divider) {
 	}
 }
 
-bool isBalanced(char string[]) {
-	int lastIndex = searchLengthString(string) - 1;
-	for (int i = 0; i < searchLengthString(string); i++) {
+bool isBalanced(char *string) {
+	int lastIndex = searchLengthString(string);
+	int lenOfString = lastIndex;
+	lastIndex--;
+	for (int i = 0; i < lenOfString; i++) {
 		if (string[i] == '(') {
 			bool isSearchBracket = false;
 			for (int j = lastIndex; j > i; j--) {
