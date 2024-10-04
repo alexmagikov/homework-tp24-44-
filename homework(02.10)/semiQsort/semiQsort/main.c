@@ -38,11 +38,13 @@ int* semiQsort(int array[], int numOfElements) {
 			biggestIndex--;
 		}
 	}
-	return array;
 }
 
 int* createArray(int numOfElements) {
 	int* array = (int*)malloc(numOfElements * sizeof(int));
+	if (array == NULL) {
+		return -1;
+	}
 	printf("Old array ");
 	for (int i = 0; i < numOfElements; i++) {
 		array[i] = rand() % (11);
@@ -50,6 +52,27 @@ int* createArray(int numOfElements) {
 	}
 	printf("\n");
 	return array;
+}
+
+bool testForEqualFirstAndLastELement() {
+	int testArray[5] = { 10,5,4,2,10 };
+	int pivotTestArray = testArray[0];
+	semiQsort(testArray, 5);
+	return isSorted(testArray, 5, pivotTestArray);
+}
+
+bool testForEqualFirstAndLast2ELement() {
+	int testArray[5] = { 10,5,4,10,10 };
+	int pivotTestArray = testArray[0];
+	semiQsort(testArray, 5);
+	return isSorted(testArray, 5, pivotTestArray);
+}
+
+bool testForExtemeArray() {
+	int testArray[5] = { 1,2,3,4,5 };
+	int pivotTestArray = testArray[0];
+	semiQsort(testArray, 5);
+	return isSorted(testArray, 5, pivotTestArray);
 }
 
 void main(void) {
@@ -60,11 +83,11 @@ void main(void) {
 	if (isNormalNumOfElements(numOfElements)) {
 		int* array = createArray(numOfElements);
 		int pivot = array[0];
-		int* newArray = semiQsort(array, numOfElements);
-		if (isSorted(newArray, numOfElements, pivot)) {
+		semiQsort(array, numOfElements);
+		if (testForEqualFirstAndLastELement() && testForEqualFirstAndLast2ELement() && isSorted(array, numOfElements, pivot)) {
 			printf("Sorted array ");
 			for (int i = 0; i < numOfElements; i++) {
-				printf("%d ", newArray[i]);
+				printf("%d ", array[i]);
 			}
 		}
 		else {

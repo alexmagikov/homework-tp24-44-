@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+
 bool isSorted(int array[], int numOfElements, int pivot) {
 	for (int i = 0; i < numOfElements; i++) {
 		if (array[i] >= pivot) {

@@ -5,7 +5,7 @@
 #include "tests.h"
 
 int expForLine(unsigned int base,unsigned int degree) {
-	int result = base;
+	long long int result = base;
 	if (degree == 0) {
 		return 1;
 	}
@@ -20,7 +20,7 @@ int expForLog(int base, int degree) {
 		return 1;
 	}
 	if (degree % 2 == 0) {
-		int firstDel = expForLog(base, degree / 2);
+		long long int firstDel = expForLog(base, degree / 2);
 		return firstDel * firstDel;
 	}
 	else {
