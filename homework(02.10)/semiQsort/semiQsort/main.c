@@ -6,36 +6,28 @@
 #include <stdbool.h>
 #include "tests.h"
 
-int* semiQsort(int array[], int numOfElements) {
-	int smallerIndex = 0;
-	int biggestIndex = numOfElements - 1;
-	int sortNum = array[0];
-	bool isEque = true;
-	for (int i = 0; i < numOfElements-1; i++) {
-		if (array[i] != array[i + 1]) {
-			isEque = false;
-			break;
+void swap(int* num1, int* num2) {
+	int swapVariable = *num1;
+	*num1 = *num2;
+	*num2 = swapVariable;
+}
+
+void hoarSort(int array[], int leftIndex, int rightIndex) {
+	int pivot = array[leftIndex];
+	swap(&array[leftIndex], &array[(leftIndex + rightIndex) / 2]);
+	int endIndex = rightIndex;
+	int startIndex = leftIndex;
+	while (startIndex <= endIndex) {
+		while (array[startIndex] < pivot) {
+			startIndex++;
 		}
-	}
-	if (isEque) {
-		return array;
-	}
-	while (array[smallerIndex] == array[biggestIndex]) {
-		biggestIndex--;
-	}
-	while (smallerIndex < biggestIndex) {
-		if (array[smallerIndex] >= sortNum && array[biggestIndex] <= sortNum && array[biggestIndex] != array[smallerIndex]) {
-			array[smallerIndex] = array[biggestIndex] + array[smallerIndex];
-			array[biggestIndex] = array[smallerIndex] - array[biggestIndex];
-			array[smallerIndex] = array[smallerIndex] - array[biggestIndex];
-			smallerIndex++;
-			biggestIndex--;
+		while (array[endIndex] > pivot) {
+			endIndex--;
 		}
-		if (array[smallerIndex] < sortNum) {
-			smallerIndex++;
-		}
-		if (array[biggestIndex] >= sortNum) {
-			biggestIndex--;
+		if (startIndex <= endIndex) {
+			swap(&array[startIndex], &array[endIndex]);
+			startIndex++;
+			endIndex--;
 		}
 	}
 }
@@ -83,7 +75,7 @@ void main(void) {
 	if (isNormalNumOfElements(numOfElements)) {
 		int* array = createArray(numOfElements);
 		int pivot = array[0];
-		semiQsort(array, numOfElements);
+		hoarSort(array, 0, numOfElements - 1);
 		if (testForEqualFirstAndLastELement() && testForEqualFirstAndLast2ELement() && isSorted(array, numOfElements, pivot)) {
 			printf("Sorted array ");
 			for (int i = 0; i < numOfElements; i++) {
