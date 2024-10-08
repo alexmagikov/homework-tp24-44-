@@ -126,7 +126,7 @@ int searchQuotient(int divisible, int divider) {
 }
 
 bool isBalanced(char const *string) {
-	int lastIndex = strlen(string);
+	int lastIndex = strlen(string) - 1;
 	int lenOfString = lastIndex;
 	lastIndex--;
 	for (int i = 0; i < lenOfString; i++) {
