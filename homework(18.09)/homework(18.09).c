@@ -65,8 +65,8 @@ void sixthTask(void) {
 }
 
 void seventhTask(void) {
-	char string1[20] = "";
-	char string2[20] = "";
+	char const string1[20] = "";
+	char const string2[20] = "";
 	printf("Input first string with  max 20 letters ");
 	fgets(string1, 20, stdin);
 	printf("Input shorter string with  max 20 letters ");
@@ -97,5 +97,5 @@ void eighthTask(void) {
 }	
 
 void main(void) {
-	sixthTask();
+	seventhTask();
 }

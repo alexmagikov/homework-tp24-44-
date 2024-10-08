@@ -51,27 +51,23 @@ int happyTickets(void) {
 	return numOfHappyTickets;
 }
 
-int searchLengthString(char *string) {
-	char *lastElement;
-	lastElement = strchr(string, '\n');
-	int lengthString = (int)(lastElement - string);
-	return lengthString;
-}
-
-int searchNumOccurence(char *string1, char *string2) {
+int searchNumOccurence(char const *string1, char const *string2) {
 	int numOfOccurence = 0;
-	int lengthString1 = searchLengthString(string1);
-	int lengthString2 = searchLengthString(string2);
-	for (int i = 0; i < lengthString1; i++) {
+	int lengthString1 = strlen(string1) - 1;
+	int lengthString2 = strlen(string2) - 1;
+	int index = 0;
+	while (index < lengthString1) {
 		bool isOccurence = true;
 		for (int j = 0; j < lengthString2; j++) {
-			if (string1[i + j] != string2[j]) {
+			if (string1[index + j] != string2[j]) {
 				isOccurence = false;
+				break;
 			}
 		}
 		if (isOccurence) {
-			numOfOccurence++; 
+			numOfOccurence++;
 		}
+		index += lengthString2;
 	}
 	return numOfOccurence;
 }
@@ -129,8 +125,8 @@ int searchQuotient(int divisible, int divider) {
 	}
 }
 
-bool isBalanced(char *string) {
-	int lastIndex = searchLengthString(string);
+bool isBalanced(char const *string) {
+	int lastIndex = strlen(string);
 	int lenOfString = lastIndex;
 	lastIndex--;
 	for (int i = 0; i < lenOfString; i++) {
