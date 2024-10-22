@@ -126,24 +126,20 @@ int searchQuotient(int divisible, int divider) {
 }
 
 bool isBalanced(char const *string) {
-	int lastIndex = strlen(string) - 1;
-	int lenOfString = lastIndex;
-	lastIndex--;
-	for (int i = 0; i < lenOfString; i++) {
-		if (string[i] == '(') {
-			bool isSearchBracket = false;
-			for (int j = lastIndex; j > i; j--) {
-				if (string[j] == ')') {
-					lastIndex = j - 1;
-					isSearchBracket = true;
-					break;
-				}
-			}
-			if (!isSearchBracket) {
-				return false;
-			}
+	int countParenthesis = 0;
+	int index = 0;
+	while (string[index] != '\0') {
+		if (string[index] == '(') {
+			countParenthesis++;
 		}
+		else if (string[index] == ')') {
+			countParenthesis--;
+		}
+		if (countParenthesis < 0) {
+			return false;
+		}
+		index++;
 	}
-	return true;
+	return countParenthesis == 0;
 }
 

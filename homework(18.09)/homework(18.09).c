@@ -97,5 +97,5 @@ void eighthTask(void) {
 }	
 
 void main(void) {
-	seventhTask();
+	fifthTask();
 }
