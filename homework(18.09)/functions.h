@@ -75,10 +75,10 @@ int searchNumOccurence(char const *string1, char const *string2) {
 	return numOfOccurence;
 }
 
-void swapPartOfArray(int array[], int startIndex, int finshIndex) {
+void swapPartOfArray(int* startIndex, int* finshIndex) {
 	int numPairs = 0;
 	while (numPairs != (finshIndex - startIndex + 1) / 2 ) {
-		swap(&array[startIndex + numPairs], &array[finshIndex - numPairs]);
+		swap((startIndex+numPairs), (finshIndex - numPairs));
 		numPairs++;
 	}
 }

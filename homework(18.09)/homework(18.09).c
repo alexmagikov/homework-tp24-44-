@@ -86,9 +86,9 @@ void eighthTask(void) {
 	int lengthPart1;
 	printf("Input int length of part1  ");
 	scanf("%d", &lengthPart1);
-	swapPartOfArray(array, 0, lengthPart1 - 1);
-	swapPartOfArray(array, lengthPart1, numberOfElements - 1);
-	swapPartOfArray(array, 0, numberOfElements - 1);
+	swapPartOfArray(&array[0], &array[lengthPart1 - 1]);
+	swapPartOfArray(&array[lengthPart1], &array[numberOfElements - 1]);
+	swapPartOfArray(&array[0], &array[numberOfElements - 1]);
 	printf("New array ");
 	for (int i = 0; i < numberOfElements; i++) {
 		printf("%d ", array[i]);
