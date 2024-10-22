@@ -56,7 +56,7 @@ int searchNumOccurence(char const *string1, char const *string2) {
 	int lengthString1 = strlen(string1) - 1;
 	int lengthString2 = strlen(string2) - 1;
 	int index = 0;
-	while (index < lengthString1) {
+	while (index + lengthString2 <= lengthString1) {
 		bool isOccurence = true;
 		for (int j = 0; j < lengthString2; j++) {
 			if (string1[index + j] != string2[j]) {
@@ -66,8 +66,11 @@ int searchNumOccurence(char const *string1, char const *string2) {
 		}
 		if (isOccurence) {
 			numOfOccurence++;
+			index += lengthString2;
 		}
-		index += lengthString2;
+		else {
+			index++;
+		}
 	}
 	return numOfOccurence;
 }
