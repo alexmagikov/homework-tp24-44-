@@ -76,19 +76,10 @@ int searchNumOccurence(char const *string1, char const *string2) {
 }
 
 void swapPartOfArray(int array[], int startIndex, int finshIndex) {
-	if ((finshIndex - startIndex + 1) % 2 == 0) {
-		int numPairs = 0;
-		while (numPairs != (finshIndex - startIndex + 1) / 2 ) {
-			swap(&array[startIndex + numPairs], &array[finshIndex - numPairs]);
-			numPairs++;
-		}
-	}
-	else {
-		int numPairs = 0;
-		while (numPairs != (finshIndex - startIndex) / 2) {
-			swap(&array[startIndex + numPairs], &array[finshIndex - numPairs]);
-			numPairs++;
-		}
+	int numPairs = 0;
+	while (numPairs != (finshIndex - startIndex + 1) / 2 ) {
+		swap(&array[startIndex + numPairs], &array[finshIndex - numPairs]);
+		numPairs++;
 	}
 }
 
