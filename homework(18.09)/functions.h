@@ -56,7 +56,7 @@ int searchNumOccurence(char const *string1, char const *string2) {
 	int lengthString1 = strlen(string1) - 1;
 	int lengthString2 = strlen(string2) - 1;
 	int index = 0;
-	while (index < lengthString1) {
+	while (index + lengthString2 <= lengthString1) {
 		bool isOccurence = true;
 		for (int j = 0; j < lengthString2; j++) {
 			if (string1[index + j] != string2[j]) {
@@ -66,26 +66,20 @@ int searchNumOccurence(char const *string1, char const *string2) {
 		}
 		if (isOccurence) {
 			numOfOccurence++;
+			index += lengthString2;
 		}
-		index += lengthString2;
+		else {
+			index++;
+		}
 	}
 	return numOfOccurence;
 }
 
-void swapPartOfArray(int array[], int startIndex, int finshIndex) {
-	if ((finshIndex - startIndex + 1) % 2 == 0) {
-		int numPairs = 0;
-		while (numPairs != (finshIndex - startIndex + 1) / 2 ) {
-			swap(&array[startIndex + numPairs], &array[finshIndex - numPairs]);
-			numPairs++;
-		}
-	}
-	else {
-		int numPairs = 0;
-		while (numPairs != (finshIndex - startIndex) / 2) {
-			swap(&array[startIndex + numPairs], &array[finshIndex - numPairs]);
-			numPairs++;
-		}
+void swapPartOfArray(int* startIndex, int* finshIndex) {
+	int numPairs = 0;
+	while (numPairs != (finshIndex - startIndex + 1) / 2 ) {
+		swap((startIndex+numPairs), (finshIndex - numPairs));
+		numPairs++;
 	}
 }
 
@@ -126,24 +120,20 @@ int searchQuotient(int divisible, int divider) {
 }
 
 bool isBalanced(char const *string) {
-	int lastIndex = strlen(string) - 1;
-	int lenOfString = lastIndex;
-	lastIndex--;
-	for (int i = 0; i < lenOfString; i++) {
-		if (string[i] == '(') {
-			bool isSearchBracket = false;
-			for (int j = lastIndex; j > i; j--) {
-				if (string[j] == ')') {
-					lastIndex = j - 1;
-					isSearchBracket = true;
-					break;
-				}
-			}
-			if (!isSearchBracket) {
-				return false;
-			}
+	int countParenthesis = 0;
+	int index = 0;
+	while (string[index] != '\0') {
+		if (string[index] == '(') {
+			countParenthesis++;
 		}
+		else if (string[index] == ')') {
+			countParenthesis--;
+		}
+		if (countParenthesis < 0) {
+			return false;
+		}
+		index++;
 	}
-	return true;
+	return countParenthesis == 0;
 }
 
