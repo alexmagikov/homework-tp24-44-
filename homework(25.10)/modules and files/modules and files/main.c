@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "sorting.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int searchMostFreaqmentElement(int array[], int numOfElements) {
     int mostFreaqment = -1;
